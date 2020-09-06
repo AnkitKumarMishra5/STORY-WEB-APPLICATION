@@ -1,0 +1,53 @@
+<%-include('partials/header') %>
+<div class="row">
+    <div style="width:30%; margin: 25px auto;">
+        <h1 style="text-align: center;">Register</h1>
+        <form action="/register" method="POST">
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Email" name="email" required autofocus>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Username" name="username" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" placeholder="Password" name="password" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="First Name" name="firstName" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Last Name" name="lastName" required>
+            </div>
+            <div class="row" style="margin: 0px auto;">
+                <div class="col-md-4">
+                    <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+                </div>
+                <div class="col-md-8">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="customRadioInline1" name="gender" value="Male" class="custom-control-input" required>
+                        <label class="custom-control-label" for="customRadioInline1">Male</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="customRadioInline2" name="gender" value="Female" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadioInline2">Female</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="customRadioInline3" name="gender" value="Others" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadioInline3">Others</label>
+                    </div>  
+                </div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Profile Image URL" name="avatar">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Admin Code" name="adminCode">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block">Sign Up</button>
+            </div>
+        </form>
+        <a href="/stories">Go Back</a>
+    </div>
+</div>
+<%-include('partials/footer') %>

@@ -1,0 +1,17 @@
+<%-include('../partials/header') %>
+<div class="container">
+
+        <h1 style="text-align: center;">Add New Comment to <%= story.title %></h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/stories/<%= story._id %>/comments" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="comment[text]" placeholder="Text">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block">Submit</button>
+                </div>
+            </form>
+            <a href="/stories/<%= story._id %>">Go Back</a>
+        </div>
+</div>
+<%-include('../partials/footer') %>

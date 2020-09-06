@@ -1,0 +1,48 @@
+<%-include('../partials/header') %>
+<div class="container">
+<header class="jumbotron">
+    <div class="container">
+        <h1>Welcome to Stories Web App</h1>
+        <p>View our hand-picked stories by the authors from all over the world</p>
+        <p>
+            <a class="btn btn-primary btn-large" href="/stories/new">Add New Story</a>
+        </p>
+        <p>
+            <form action="/stories" method="GET" class="form-inline">
+                <div class="form-group">
+                    <input type="text" name="search" placeholder="Search for a story!" class="form-control">
+                    <input type="submit" value="Search" class="btn btn-light">
+                </div>
+            </form>
+        </p>
+    </div>
+</header>
+
+<div class="row text-center">
+    <% if(stories.length==0){ %>
+        <div class="col-md-12 alert alert-info" role="alert">
+            No stories found!<br>
+        </div>
+        <script>
+            var timer = setTimeout(function() {
+                window.location='/stories';
+            }, 3000);
+        </script>
+    <% } %>
+    <% stories.forEach(function(story){ %>
+        <div class="col-md-3 col-sm-6">
+            <div class="img-thumbnail">
+                <img src="<%= story.image %>" style="width: 100%;">
+                <div class="caption">
+                    <h4 style="margin: 0px;"><%=story.title %></h4>
+                    <h6 style="margin: 0px;"><i class="fas fa-users"></i> <%=story.reads.length%></h6>
+                </div>
+                <p>
+                    <a href="/stories/<%= story._id %>" class="btn btn-primary btn-sm" style="margin-top: 1em;">Read this story!</a>
+                </p>
+            </div>
+        </div>
+    <% }); %>
+</div>
+</div>
+<%-include('../partials/footer') %>

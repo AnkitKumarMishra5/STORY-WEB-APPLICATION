@@ -1,0 +1,53 @@
+<%-include('../partials/header') %>
+
+<div class="container">
+    <div style="width: 40%; margin: 25px auto;">
+        <h2 style="text-align: center;"><%= user.firstName + " " + user.lastName%></h2>
+        <h5 style="text-align: center;">(<%= user.username%>)</h5>
+        <div class="profile-img">
+            <% if(user.gender=="Male"){ %>
+            <img class="img-fluid img-thumbnail rounded mx-auto d-block" src="<%= user.avatar %>" alt="User Profile Image"
+                onerror="this.onerror=null;this.src='../images/undraw_male_avatar_323b.svg'">
+            <% } else if(user.gender=="Female") { %>
+            <img class="img-fluid img-thumbnail rounded mx-auto d-block" src="<%= user.avatar %>" alt="User Profile Image"
+                onerror="this.onerror=null;this.src='../images/undraw_female_avatar_w3jk.svg'">
+            <% } else { %>
+            <img class="img-fluid img-thumbnail rounded mx-auto d-block" src="<%= user.avatar %>" alt="User Profile Image"
+                onerror="this.onerror=null;this.src='../images/others.jpg'">
+            <% } %>
+            <div class="caption" style="text-align: center;">
+                <a href="mailto:<%= user.email %>"><%= user.email %></a>
+            </div>
+        </div>
+        <div class="well">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th scope="row">First Name</th>
+                        <td><%= user.firstName %></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Last Name</th>
+                        <td><%= user.lastName %></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Gender</th>
+                        <td><%= user.gender %></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <% if(stories.length>0){ %>
+            <p class="lead" style="text-align: center; margin-top: 10px;"><%= user.firstName %>'s stories</p>
+            <div class="list-group">
+                <% stories.forEach(function(story){ %>
+                    <a class="list-group-item list-group-item-action" href="/stories/<%=story.id%>"><%= story.title %></a>
+                <% }) %>
+            </div>
+        <% } else { %>
+            <p class="lead" style="text-align: center; margin-top: 10px;"">You don't have not published any stories yet!</p>
+        <% } %>
+    </div>
+</div>
+
+<%-include('../partials/footer') %>
